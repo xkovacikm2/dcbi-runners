@@ -1,0 +1,3 @@
+test_user:
+  email: test@test.sk
+  password: <%= Devise::Encryptor.digest User, '123456' %>
