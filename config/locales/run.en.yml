@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    models:
+      run: "Run"
+    attributes:
+      distance: "distance"
+      duration: "duration"
+      date: "date"
+    errors:
+      invalid_date_format: "Invalid date format"
+      future_date: "Adding run from future is not permitted"

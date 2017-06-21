@@ -1,3 +1,9 @@
-test_user:
+has_runs:
+  id: 1
   email: test@test.sk
-  password: <%= Devise::Encryptor.digest User, '123456' %>
+  encrypted_password: <%= Devise::Encryptor.digest User, '123456' %>
+
+no_runs:
+  id: 2
+  email: test2@test.sk
+  encrypted_password: <%= Devise::Encryptor.digest User, '123456' %>
