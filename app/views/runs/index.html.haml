@@ -13,7 +13,7 @@
             %tr
               %th= t 'activerecord.attributes.date'
               %th= t 'activerecord.attributes.duration'
-              %th= t 'activerecord.attributes.distance'
+              %th= "#{t 'activerecord.attributes.distance'} (km)"
               %th.no-sort= t 'button.delete'
           %tbody
             = render @runs

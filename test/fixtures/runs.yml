@@ -1,11 +1,11 @@
 one:
-  duration: 1000
+  duration: <%= Time.now %>
   distance: 1.5
   date: 2017-06-21
   user_id: 1
 
 two:
-  duration: 500
+  duration: <%= Time.now %>
   distance: 2.5
   date: 2017-06-21
   user_id: 1

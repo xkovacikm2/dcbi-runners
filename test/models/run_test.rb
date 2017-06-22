@@ -4,7 +4,7 @@ class RunTest < ActiveSupport::TestCase
   def setup
     @user1 = users :has_runs
     @user2 = users :no_runs
-    @valid_params = {distance: 20, duration: 500, date: Date.yesterday}
+    @valid_params = {distance: 20, duration: Time.now, date: Date.yesterday}
     @run = @user2.runs.new @valid_params
   end
 
@@ -53,7 +53,7 @@ class RunTest < ActiveSupport::TestCase
   end
 
   test 'duration is number greater than zero' do
-    @run.duration = 50
+    @run.duration = Time.now
     assert @run.valid?, '50 duration'
 
     @run.duration = 0

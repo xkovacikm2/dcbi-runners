@@ -3,7 +3,7 @@ class RunsController < ApplicationController
   before_action :authenticate_user!
 
   #run must be owned by user in order to be edited or destroyed
-  before_action :users_run?, only: [:edit, :destroy]
+  before_action :users_run?, only: [:update, :destroy]
 
   def index
     @runs = current_user.runs
@@ -13,7 +13,7 @@ class RunsController < ApplicationController
 
   end
 
-  def edit
+  def update
 
   end
 

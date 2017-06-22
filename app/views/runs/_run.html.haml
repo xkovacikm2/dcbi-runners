@@ -1,10 +1,36 @@
 %tr.gradeA
   %td
-    = run.date.to_date.iso8601
+    %a{ href: '#',
+        id: "#{ run.id }-date",
+        class: "x-editable",
+        'data-type' => 'combodate',
+        'data-format' => 'yyyy-mm-dd',
+        'data-viewformat' => 'yyyy-mm-dd',
+        'data-pk' => run.id,
+        'data-url' => run_path(run),
+        'data-title' => (t 'activerecord.attributes.date') }
+      = run.date.to_date
   %td
-    = run.duration.seconds.iso8601
+    %a{ href: '#',
+        id: "#{ run.id }-duration",
+        class: "x-editable",
+        'data-type' => 'combodate',
+        'data-format' => 'HH:mm:ss',
+        'data-viewformat' => 'HH:mm:ss',
+        'data-template' => 'HH:mm:ss',
+        'data-pk' => run.id,
+        'data-url' => run_path(run),
+        'data-title' => t('activerecord.attributes.duration') }
+      = run.duration.strftime '%H:%m:%S'
   %td
-    = "#{run.distance.round 2}km"
+    %a{ href: '#',
+        id: "#{ run.id }-distance",
+        class: "x-editable",
+        'data-type' => 'text',
+        'data-pk' => run.id,
+        'data-url' => run_path(run),
+        'data-title' => t('activerecord.attributes.distance') }
+      = run.distance.round 2
   %td
     = link_to run, method: :delete, confirm: t('button.confirm') do
       = image_tag 'delete.png', alt: 'delete icon', class: 'table-icon'

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20170621154457) do
 
   create_table "runs", force: :cascade do |t|
-    t.integer  "duration",   null: false
+    t.time     "duration",   null: false
     t.float    "distance",   null: false
     t.date     "date",       null: false
     t.integer  "user_id",    null: false

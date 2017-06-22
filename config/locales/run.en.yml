@@ -8,6 +8,7 @@ en:
       date: "Date"
     errors:
       invalid_date_format: "Invalid date format"
+      invalid_time_format: "Invalid time format"
       future_date: "Adding run from future is not permitted"
       run_not_deleted: "Run has not been deleted"
     messages:
