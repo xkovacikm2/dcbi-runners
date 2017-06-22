@@ -3,9 +3,11 @@ one:
   distance: 1.5
   date: 2017-06-21
   user_id: 1
+  id: 1
 
 two:
   duration: <%= Time.now %>
   distance: 2.5
   date: 2017-06-21
   user_id: 1
+  id: 2

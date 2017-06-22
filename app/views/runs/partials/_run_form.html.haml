@@ -1,1 +1,19 @@
-%p this will be form
+= form_for @run, url: {action: :create}, html: {class: 'center-form editableform'} do |f|
+  .form-group.input-group
+    = f.label :date
+    %br
+    = f.text_field :date, required: true, class: 'form-control', 'data-format' => 'YYYY-MM-DD',
+        'data-viewformat' => 'YYYY-MM-DD', 'data-template' => 'YYYY-MM-DD'
+
+  .form-group.input-group
+    = f.label :duration
+    %br
+    = f.text_field :duration, required: true, class: 'form-control', 'data-format' => 'HH:mm:ss',
+        'data-viewformat' => 'HH:mm:ss', 'data-template' => 'HH:mm:ss'
+
+  .form-group.input-group
+    = f.label :distance
+    %br
+    = f.text_field :distance, required: true, class: 'form-control'
+
+  = f.submit t('activerecord.form.add_trigger'), class: 'btn btn-primary'

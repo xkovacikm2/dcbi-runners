@@ -7,6 +7,7 @@ class RunsController < ApplicationController
 
   def index
     @runs = current_user.runs
+    @run = Run.new
   end
 
   def create
@@ -14,7 +15,11 @@ class RunsController < ApplicationController
   end
 
   def update
-
+    if @run.update run_update_params
+      render json: @run
+    else
+      render json: @run.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -30,5 +35,15 @@ class RunsController < ApplicationController
   def users_run?
     @run = Run.find params[:id] rescue redirect_not_found and return
     redirect_unauthorized unless @run.user == current_user
+  end
+
+  def run_update_params
+    pars = params.to_unsafe_hash
+    pars[:name] = pars[:name].tr '^[a-zA-Z_]', ''
+    rv = {}
+    if %w(duration date distance).include? pars[:name]
+      rv[pars[:name]] = pars[:value]
+    end
+    rv
   end
 end

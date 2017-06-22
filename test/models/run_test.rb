@@ -41,6 +41,23 @@ class RunTest < ActiveSupport::TestCase
     assert_not @run.valid? 'future date'
   end
 
+  test 'attributes must not be empty' do
+    run = @run.clone
+    assert run.valid?, 'valid run'
+
+    run = @run.clone
+    run.date = nil
+    assert_not run.valid?, 'date nil'
+
+    run = @run.clone
+    run.distance = nil
+    assert_not run.valid?, 'distance nil'
+
+    run = @run.clone
+    run.duration = nil
+    assert_not run.valid?, 'duration nil'
+  end
+
   test 'distance is number greater than zero' do
     @run.distance = 50
     assert @run.valid?, '50 distance'
