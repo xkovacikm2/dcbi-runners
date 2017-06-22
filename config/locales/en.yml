@@ -1,2 +1,6 @@
 en:
-  hello: "Hello world"
+  not_authorized: "Action is not authorized"
+  not_found: "Record not found"
+  button:
+    confirm: "Are you sure?"
+    delete: "Delete"

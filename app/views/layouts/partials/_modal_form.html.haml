@@ -1,0 +1,17 @@
+//locals: trigger_label, trigger_value, modal_id, content_partial
+%div
+  %label{for: 'add-item'}= trigger_label
+  %button{id: 'add-item',
+    class: 'btn btn-circle',
+    'data-toggle' => 'modal',
+    'data-target' => "##{ modal_id }"}
+    = trigger_value
+
+  %div{id: "#{ modal_id }", class: 'modal fade', role: 'dialog'}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{'data-dismiss' => 'modal'} X
+
+        .modal-body
+          = render partial: content_partial

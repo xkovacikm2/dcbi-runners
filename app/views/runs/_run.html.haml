@@ -1,0 +1,10 @@
+%tr.gradeA
+  %td
+    = run.date.to_date.iso8601
+  %td
+    = run.duration.seconds.iso8601
+  %td
+    = "#{run.distance.round 2}km"
+  %td
+    = link_to run, method: :delete, confirm: t('button.confirm') do
+      = image_tag 'delete.png', alt: 'delete icon', class: 'table-icon'

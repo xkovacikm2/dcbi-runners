@@ -5,6 +5,9 @@ class Run < ApplicationRecord
   validates_numericality_of :distance, greater_than: 0
   validate :date_is_valid
 
+  #default ordering
+  default_scope -> {order date: :desc}
+
   #validates if date is indeed a date and if it is not from future
   def date_is_valid
     if !date.is_a? Date
