@@ -9,5 +9,8 @@ en:
     errors:
       invalid_date_format: "Invalid date format"
       future_date: "Adding run from future is not permitted"
+      run_not_deleted: "Run has not been deleted"
+    messages:
+      run_deleted: "Run has been deleted"
     form:
       add_trigger: "Add run"
