@@ -11,7 +11,15 @@ class RunsController < ApplicationController
   end
 
   def create
-
+    @run = current_user.runs.new run_create_params
+    if @run.save
+      flash[:notice] = t 'activerecord.messages.run_created'
+      redirect_to runs_path
+    else
+      flash.now[:danger] = t 'activerecord.errors.run_not_created'
+      @runs = current_user.runs
+      render 'index'
+    end
   end
 
   def update
@@ -45,5 +53,9 @@ class RunsController < ApplicationController
       rv[pars[:name]] = pars[:value]
     end
     rv
+  end
+
+  def run_create_params
+    params.require(:run).permit :date, :duration, :distance
   end
 end

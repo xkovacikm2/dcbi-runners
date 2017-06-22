@@ -11,7 +11,9 @@ en:
       invalid_time_format: "Invalid time format"
       future_date: "Adding run from future is not permitted"
       run_not_deleted: "Run has not been deleted"
+      run_not_created: "Run has not been created"
     messages:
       run_deleted: "Run has been deleted"
+      run_created: "Run has been created"
     form:
       add_trigger: "Add run"

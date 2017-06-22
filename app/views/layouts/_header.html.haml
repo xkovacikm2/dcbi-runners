@@ -1,0 +1,28 @@
+%nav.navbar.navbar-default.navbar-static-top{role: 'navigation'}
+  .navbar-header
+    %button.navbar-toggle{type:'button', 'data-toggle' => 'collapse', 'data-target' => '.navbar-collapse'}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+
+  %ul.nav.navbar-top-links.navbar-right
+    - if current_user.nil?
+      %li
+        = link_to new_user_registration_path do
+          %i.fa.fa-user.fa-fw
+          = t 'devise.registrations.sign_up_btn'
+      %li
+        = link_to new_user_session_path do
+          %i.fa.fa-sign-in.fa-fw
+          = t 'devise.sessions.sign_in'
+    - else
+      %li
+        = link_to edit_user_registration_path(id: current_user.id) do
+          %i.fa.fa-user.fa-fw
+          User profile
+      %li.divider
+      %li
+        = link_to destroy_user_session_path, method: :delete do
+          %i.fa.fa-sign-out.fa-fw
+          Logout
