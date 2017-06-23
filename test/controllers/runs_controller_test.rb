@@ -42,14 +42,26 @@ class RunsControllerTest < ActionController::TestCase
   end
 
   test 'should not create run for not logged in user' do
-
+    assert_no_difference 'Run.count' do
+      post :create, params: {run: {distance: 12, date: Date.today, duration: Time.now}}
+    end
   end
 
   test 'should create run for signed in user' do
-
+    sign_in @user1
+    assert_difference 'Run.count', 1 do
+      post :create, params: {run: {distance: 12, date: Date.today, duration: Time.now}}
+    end
   end
 
   test 'should not create run if invalid values' do
+    sign_in @user1
+    assert_difference 'Run.count', 0, 'wrong distance' do
+      post :create, params: {run: {distance: -12, date: Date.today, duration: Time.now}}
+    end
 
+    assert_difference 'Run.count', 0, 'wrong date' do
+      post :create, params: {run: {distance: 12, date: 'kek', duration: Time.now}}
+    end
   end
 end

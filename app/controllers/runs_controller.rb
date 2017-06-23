@@ -17,7 +17,7 @@ class RunsController < ApplicationController
       redirect_to runs_path
     else
       flash.now[:danger] = t 'activerecord.errors.run_not_created'
-      @runs = current_user.runs
+      @runs = current_user.runs.where('runs.id > 0')
       render 'index'
     end
   end

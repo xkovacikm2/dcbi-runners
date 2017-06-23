@@ -1,11 +1,4 @@
 %nav.navbar.navbar-default.navbar-static-top{role: 'navigation'}
-  .navbar-header
-    %button.navbar-toggle{type:'button', 'data-toggle' => 'collapse', 'data-target' => '.navbar-collapse'}
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-
   %ul.nav.navbar-top-links.navbar-right
     - if current_user.nil?
       %li
